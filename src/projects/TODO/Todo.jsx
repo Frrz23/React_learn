@@ -10,24 +10,41 @@ import "./Todo.css";
 const Todo = () => {
   const [task, settask] = useState([]);
 
-
   const handleformsubmit = (inputval) => {
-    if (!inputval) return;
-
-    if(task.includes(inputval)) {
-      return;
-    }; 
-
-    settask((prev) => {
-      return [...prev, inputval]; 
-    });
-
+    // Ensure inputval has the expected properties
+    const { id, content, checked } = inputval;
+  
+    // Check if content is valid
+    if (!content) return;
+  
+    // Prevent duplicate tasks
+    const val = task.find((curtask) => curtask.content === content);
+    if (val) return;
+  
+    // Add new task
+    settask((prev) => [...prev, { id, content, checked }]);
   };
+  
   
 
   const handledelete = (value) => {
-    const updated = task.filter((curtask) => curtask !== value);
+    const updated = task.filter((curtask) => curtask.content !== value);
     settask(updated);
+  };
+  const handleClearTodoData = () => {
+    settask([]);
+  };
+
+  //todo handleCheckedTodo functionality
+  const handleCheckedTodo = (content) => {
+    const updatedTask = task.map((curtask) => {
+      if (curtask.content === content) {
+        return { ...curtask, checked: !curtask.checked };
+      } else {
+        return curtask;
+      }
+    });
+    settask(updatedTask);
   };
   
 
@@ -40,12 +57,19 @@ const Todo = () => {
       <Todoform onaddTodo={handleformsubmit} />
       <section className="myUnOrdList">
         <ul>
-          {task.map((curtask, index) => {
-           return(<TodoList key={index} data={curtask} ondelete={handledelete}/>)
+          {task.map((curtask) => {
+           return(<TodoList key={curtask.id} data={curtask.content} checked={curtask.checked}
+            ondelete={handledelete} onHandleCheckedTodo={handleCheckedTodo}/>)
           })} 
         </ul>
 
       </section>
+      <section>
+        <button className="clear-btn" onClick={handleClearTodoData}>
+          Clear all
+        </button>
+        </section>
+
     </section>
   );
 };

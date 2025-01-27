@@ -2,14 +2,14 @@ import React from 'react'
 import { FaCheck } from 'react-icons/fa'
 import { FaDeleteLeft } from 'react-icons/fa6'
 
-const TodoList = ({ key,data, ondelete }) => {
+const TodoList = ({data,checked, ondelete,onHandleCheckedTodo}) => {
   return (
-    <li key={key} className="todo-item">
-    <span>{data}</span>
-    <button className="check-btn"><FaCheck />
+    <li  className="todo-item">
+      <span className={checked ? "checkList" : "notCheckList"}>{data}</span>
+      <button className="check-btn" onClick={() => onHandleCheckedTodo(data)}>
+        <FaCheck />
     </button>
-    <button className="delete-btn"
-     onClick={()=>ondelete(data)}
+    <button className="delete-btn" onClick={()=>ondelete(data)}
     ><FaDeleteLeft />
 
     </button>

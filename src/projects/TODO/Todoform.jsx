@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
 const Todoform = ({onaddTodo}) => {
-  const [inputval, setinputval] = useState("");
+  const [inputval, setinputval] = useState({});
   const handleinputChange = (value) => {
-    setinputval(value);
+    setinputval({id:value, content:value, checked:false});
   };
   const handleformsubmit = (event) => {
     event.preventDefault();
@@ -19,7 +19,7 @@ const Todoform = ({onaddTodo}) => {
               type="text"
               className="todo-input"
               autoComplete="off"
-              value={inputval}
+              value={inputval.content}
               onChange={(event) => handleinputChange(event.target.value)}
             />
           </div>
