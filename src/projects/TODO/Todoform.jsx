@@ -8,7 +8,7 @@ const Todoform = ({onaddTodo}) => {
   const handleformsubmit = (event) => {
     event.preventDefault();
     onaddTodo(inputval);
-    setinputval("");  
+    setinputval({ id: "", content: "", checked: false });  
 
   }
   return (

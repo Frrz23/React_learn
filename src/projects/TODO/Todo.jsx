@@ -2,16 +2,12 @@ import React, { useEffect, useState } from "react";
 import Todoform from "./Todoform";
 import TodoList from "./TodoList";
 import TodoDate from "./TodoDate";
-
-
-
 import "./Todo.css";
-
+import { getLocalstorage, setLocalstorage } from "./Localstorage";
 const Todo = () => {
-  const [task, settask] = useState([]);
+  const [task, settask] = useState(()=>getLocalstorage());
 
   const handleformsubmit = (inputval) => {
-    // Ensure inputval has the expected properties
     const { id, content, checked } = inputval;
   
     // Check if content is valid
@@ -26,6 +22,8 @@ const Todo = () => {
   };
   
   
+  //add local storage
+  setLocalstorage(task);
 
   const handledelete = (value) => {
     const updated = task.filter((curtask) => curtask.content !== value);
@@ -46,7 +44,6 @@ const Todo = () => {
     });
     settask(updatedTask);
   };
-  
 
   return (
     <section className="todo-container">

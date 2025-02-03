@@ -6,6 +6,7 @@ import Profile from "./Components/Profile";
 import Product from "./Components/Product";
 import Toogleswitch from "./projects/ToogleSwitch/Toogleswitch";
 import Todo from "./projects/TODO/Todo";
+import Count from "./projects/Testing/Count";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -33,7 +34,8 @@ function App() {
       {/* <button onClick={handleButtonClick}>Sam</button> */}
 
       <section>
-        <Todo></Todo>
+        {/* <Todo></Todo> */}
+        <Count></Count>
       </section>
     </>
   );
