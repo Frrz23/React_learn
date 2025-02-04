@@ -33,7 +33,7 @@ function App() {
 
       {/* <button onClick={handleButtonClick}>Sam</button> */}
 
-      <section>
+      <section >
         {/* <Todo></Todo> */}
         <Count></Count>
       </section>
