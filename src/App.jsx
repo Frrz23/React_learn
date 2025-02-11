@@ -7,6 +7,8 @@ import Product from "./Components/Product";
 import Toogleswitch from "./projects/ToogleSwitch/Toogleswitch";
 import Todo from "./projects/TODO/Todo";
 import Count from "./projects/Testing/Count";
+import Formtest from "./projects/Testing/Formtest";
+
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -35,7 +37,8 @@ function App() {
 
       <section >
         {/* <Todo></Todo> */}
-        <Count></Count>
+        {/* <Count></Count> */}
+        <Formtest></Formtest>
       </section>
     </>
   );
