@@ -8,6 +8,7 @@ import Toogleswitch from "./projects/ToogleSwitch/Toogleswitch";
 import Todo from "./projects/TODO/Todo";
 import Count from "./projects/Testing/Count";
 import Formtest from "./projects/Testing/Formtest";
+import TestCount from "./projects/Testing/TestCount";
 
 
 function App() {
@@ -34,12 +35,8 @@ function App() {
       {/* <Profile></Profile> */}
 
       {/* <button onClick={handleButtonClick}>Sam</button> */}
+      <TestCount></TestCount>
 
-      <section >
-        {/* <Todo></Todo> */}
-        {/* <Count></Count> */}
-        <Formtest></Formtest>
-      </section>
     </>
   );
 }
